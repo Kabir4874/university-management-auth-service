@@ -26,7 +26,6 @@ export default defineConfig([
     },
     rules: {
       '@typescript-eslint/no-explicit-any': 'error',
-      'no-console': 'warn',
       'no-undef': 'error',
       'no-unused-expressions': 'error',
       'no-unreachable': 'error',
