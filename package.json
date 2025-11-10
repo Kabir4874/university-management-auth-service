@@ -5,16 +5,35 @@
   "main": "server.js",
   "scripts": {
     "server": "tsx watch src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:check": "eslint --ext .js,.cjs,.mjs,.ts,.tsx,.mts,.cts .",
+    "lint:fix": "eslint --fix --ext .js,.cjs,.mjs,.ts,.tsx,.mts,.cts .",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{js,ts,tsx,json}\"",
+    "format:check": "prettier --ignore-path .gitignore --check \"**/*.{js,ts,tsx,json}\"",
+    "lint-prettier": "npm run lint:check -- && npm run format:check --",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
+  "lint-staged": {
+    "**/*.{ts,tsx}": "npm run lint-prettier --"
+  },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
-    "typescript": "^5.9.3"
+    "@types/node": "^24.10.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "jiti": "^2.6.1",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3"
   },
   "dependencies": {
     "cors": "^2.8.5",
