@@ -7,8 +7,8 @@
     "server": "tsx watch src/server.ts",
     "lint:check": "eslint --ext .js,.cjs,.mjs,.ts,.tsx,.mts,.cts .",
     "lint:fix": "eslint --fix --ext .js,.cjs,.mjs,.ts,.tsx,.mts,.cts .",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.{js,ts,tsx,json}\"",
-    "format:check": "prettier --ignore-path .gitignore --check \"**/*.{js,ts,tsx,json}\"",
+    "format:fix": "prettier --ignore-path .gitignore --write \"**/*.{js,ts,tsx,json}\"",
+    "format:check": "prettier --ignore-path .gitignore --check",
     "lint-prettier": "npm run lint:check -- && npm run format:check --",
     "prepare": "husky"
   },
