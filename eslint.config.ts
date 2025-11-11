@@ -6,7 +6,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig([
-  { ignores: ['node_modules/', 'dist/', 'build/', '.env'] },
+  { ignores: ['node_modules/', 'dist/', 'build/', '.env', 'logs/'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   prettierConfig,
