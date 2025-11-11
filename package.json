@@ -7,8 +7,8 @@
     "server": "tsx watch src/server.ts",
     "lint:check": "eslint --ext .js,.cjs,.mjs,.ts,.tsx,.mts,.cts .",
     "lint:fix": "eslint --fix --ext .js,.cjs,.mjs,.ts,.tsx,.mts,.cts .",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.{js,ts,tsx,json}\"",
-    "format:check": "prettier --ignore-path .gitignore --check \"**/*.{js,ts,tsx,json}\"",
+    "format:fix": "prettier --ignore-path .gitignore --write \"**/*.{js,ts,tsx,json}\"",
+    "format:check": "prettier --ignore-path .gitignore --check",
     "lint-prettier": "npm run lint:check -- && npm run format:check --",
     "prepare": "husky"
   },
@@ -40,6 +40,8 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "mongoose": "^8.19.3",
-    "tsx": "^4.20.6"
+    "tsx": "^4.20.6",
+    "winston": "^3.18.3",
+    "winston-daily-rotate-file": "^5.0.0"
   }
 }
