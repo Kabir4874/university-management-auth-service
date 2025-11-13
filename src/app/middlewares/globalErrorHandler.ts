@@ -1,7 +1,9 @@
 import { type ErrorRequestHandler } from 'express';
+import { ZodError } from 'zod';
 import config from '../../config/index.js';
 import ApiError from '../../errors/ApiError.js';
 import handleValidationError from '../../errors/handleValidationError.js';
+import handleZodError from '../../errors/handleZodError.js';
 import type { IGenericErrorMessage } from '../../interfaces/error.js';
 import { erroLogger } from '../../shared/logger.js';
 
@@ -31,6 +33,11 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
           },
         ]
       : [];
+  } else if (error instanceof ZodError) {
+    const simplifiedError = handleZodError(error);
+    statusCode = simplifiedError?.statusCode;
+    message = simplifiedError?.message;
+    errorMessages = simplifiedError.errorMessages;
   } else if (error instanceof Error) {
     message = error?.message;
     errorMessages = error?.message
