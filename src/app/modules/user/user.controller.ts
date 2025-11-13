@@ -1,11 +1,7 @@
-import { type NextFunction, type Request, type Response } from 'express';
-import { createUserService } from './users.service.js';
+import { type RequestHandler } from 'express';
+import { createUserService } from './user.service.js';
 
-export const createUser = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const createUser: RequestHandler = async (req, res, next) => {
   try {
     const { user } = req.body;
     const result = await createUserService(user);
