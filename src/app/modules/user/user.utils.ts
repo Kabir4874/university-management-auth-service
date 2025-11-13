@@ -1,4 +1,4 @@
-import { findLastUserId } from './users.service.js';
+import { findLastUserId } from './user.service.js';
 
 export const generateUserId = async (): Promise<string> => {
   const last = await findLastUserId();

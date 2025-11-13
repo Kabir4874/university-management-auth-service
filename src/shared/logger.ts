@@ -12,7 +12,7 @@ const myFormat = printf(({ level, message, label, timestamp }) => {
   return `(${date.toDateString()}) ${hour}:${minute} [${label}] ${level}: ${message}`;
 });
 
-export const infLogger = createLogger({
+export const infoLogger = createLogger({
   level: 'info',
   format: combine(label({ label: 'Success' }), timestamp(), myFormat),
   transports: [

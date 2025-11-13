@@ -1,8 +1,8 @@
 import config from '../../../config/index.js';
 import ApiError from '../../../errors/ApiError.js';
-import type { IUser } from './users.interface.js';
-import User from './users.model.js';
-import { generateUserId } from './users.utils.js';
+import type { IUser } from './user.interface.js';
+import User from './user.model.js';
+import { generateUserId } from './user.utils.js';
 
 export const findLastUserId = async () => {
   const lastUser = await User.findOne({}, { id: 1, _id: 0 })
