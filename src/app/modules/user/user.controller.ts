@@ -1,19 +1,15 @@
-import { type RequestHandler } from 'express';
+import status from 'http-status';
+import catchAsync from '../../../shared/catchAsync.js';
+import sendReponse from '../../../shared/sendResponse.js';
 import { createUserService } from './user.service.js';
-import { createUserZodSchema } from './user.validation.js';
 
-export const createUser: RequestHandler = async (req, res, next) => {
-  try {
-    await createUserZodSchema.parseAsync(req);
-
-    const { user } = req.body;
-    const result = await createUserService(user);
-    res.status(200).json({
-      success: true,
-      message: 'User created successfully',
-      data: result,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
+export const createUser = catchAsync(async (req, res) => {
+  const { user } = req.body;
+  const result = await createUserService(user);
+  sendReponse(res, {
+    statusCode: status.OK,
+    success: true,
+    message: 'User Created Successfully',
+    data: result,
+  });
+});
